@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Set Interval</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	</head>
+<body>
+	<script type="text/javascript">
+	<!--
+		"use strict";
+
+		var count = 0, interval;
+		function show_output()
+		{
+			document.frm1.txtShow.value = count;
+			count++;
+		}
+
+		function show_start()
+		{
+			interval = setInterval("show_output();", 1000);
+		}
+
+		function show_stop()
+		{
+			clearInterval(interval);
+		}
+	//-->
+	</script>
+
+	<form name="frm1">
+		<input type="button" value="Start Show" onclick="show_start();">
+		<input type="button" value="Stop Show" onclick="show_stop();">
+		<br>
+		<input type="text" name="txtShow" readonly="true">
+	</form>
+
+<p>
+<a href="index.html">Go to Main Page</a>
+</p>
+</body>
+</html>
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JavaScript Cookie</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+		<script type="text/javascript">
+		<!--
+			"use strict";
+
+			function set_cookie()
+			{
+				/* cookie line:
+				cookie_name=cookie_value
+				or
+				cookie_name=cookie_value; expires=cookie_validity_days-in-UTC_string
+				 */
+				var cookie_name          = "myCookie";
+				var cookie_value         = document.frmCookie.txtFName.value;
+				var cookie_validity_days = 10;
+
+				if(cookie_value.trim().length == 0)
+					cookie_value = "Test...";
+				else
+					cookie_value = escape(cookie_value);	// take care of special chars and spaces etc.
+
+				if(cookie_validity_days == null)
+				{
+					document.cookie = cookie_name + "=" + cookie_value;
+				}
+				else
+				{
+					var now = new Date();
+					var valid_upto = new Date();
+
+					valid_upto.setDate(now.getDate() + cookie_validity_days);
+					var expires = valid_upto.toUTCString();
+
+					document.cookie = cookie_name + "=" + cookie_value + "; expires=" + expires;
+				}
+			}
+
+			function get_cookie()
+			{
+				var cookie_values = document.cookie;
+
+				if( (cookie_values == null) || (cookie_values == "") )
+					alert("No Cookie Set!");
+				else
+					alert(cookie_values);
+			}
+		//-->
+		</script>
+	</head>
+<body>
+	<p>Type a string in the text-box below, and click on the 'Submit' button. Next, close the page and open it again and click on the 'Read Cookie' button. An alert box should show the (unprocessed) cookie values.</p>
+	<hr>
+	<form name="frmCookie">
+		Enter your First Name: <input type="text" name="txtFName">
+		<br> <br>
+		<input type="button" value="Submit" name="btnSubmit" onClick="set_cookie();">
+		<input type="button" value="Read Cookie" name="btnRead" onClick="get_cookie();">
+	</form>
+	<hr>
+	<p>For the (name,value) pair, the 'name' is set to 'myCookie'. If the user does not enter a string or enters only spaces, the 'value' is set to 'Test...'. The expiration time for the cookie is set to 10 days from now.</p>
+	<p>Also check the JavaScript Cookie example at: www.w3schools.com</p>
+
+<p>
+<a href="index.html">Go to Main Page</a>
+</p>
+</body>
+</html>
+

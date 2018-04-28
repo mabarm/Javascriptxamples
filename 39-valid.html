@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Check Validity</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<script type="text/javascript">
+	<!--
+		"use strict";
+
+		function valid()
+		{
+			var fld1 = document.frmInfo.fullName.value;
+			var fld2 = document.frmInfo.address.value;
+			//var fld2 = document.frmInfo.address.value.trim();
+			var err = "";
+			
+			//if((fld1.trim().length==0) || (fld1.charAt(0)==" ") || (!isNaN(fld1)))
+			if((fld1.length==0) || (fld1.charAt(0)==" ") || (!isNaN(fld1)))
+				err = "Enter the Full Name - must not preceed with blank.\n"
+				
+			if((fld2.trim().length==0) || (fld2.charAt(0)==" "))
+				err = err + "Enter Address"
+				
+			if(err.length > 0)
+				alert(err);
+			else
+				alert("Input Accepted");
+		}
+	//-->
+	</script>
+</head>
+<body>
+	<form name="frmInfo">
+		Full Name: <input type="Text" name="fullName">
+		<br>
+		Full Address: <input type="Text" name="address">
+		<br>
+		<input type="Button" value="Submit" onclick="valid();">
+	</form>
+
+<p>
+<a href="index.html">Go to Main Page</a>
+</p>
+</body>
+</html>
+

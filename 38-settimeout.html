@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Set Timeout</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	</head>
+<body>
+	<script type="text/javascript">
+	<!--
+		"use strict";
+
+		var interval;
+		function show_output()
+		{
+			document.frm1.txtShow.value = "Time Out!";
+		}
+
+		function show_start()
+		{
+			interval = setTimeout("show_output();", 3000);
+		}
+
+		function show_stop()
+		{
+			clearTimeout(interval);
+		}
+	//-->
+	</script>
+
+	<form name="frm1">
+		<input type="button" value="Start Timeout" onclick="show_start();">
+		<input type="button" value="Stop Timeout" onclick="show_stop();">
+		<br>
+		<input type="text" name="txtShow" readonly="true">
+	</form>
+
+<p>
+<a href="index.html">Go to Main Page</a>
+</p>
+</body>
+</html>
+

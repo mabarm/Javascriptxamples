@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Order Form</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<script type = "text/javascript">
+		<!--
+		"use strict";
+
+		function CalculateTotals()
+		{
+			f=document.orderform;
+			f.total1.value = parseInt(f.qty1.value)*50;
+			f.total2.value = parseInt(f.qty2.value)*295;
+			f.total3.value = parseInt(f.qty3.value)*395;
+			f.total4.value = parseInt(f.qty4.value)*750;
+			f.grandtotal.value=parseInt(f.total1.value)+parseInt(f.total2.value)+parseInt(f.total3.value)+parseInt(f.total4.value);
+		}
+		//-->
+		</script>
+	</head>
+<body onload="document.orderform.qty1.select(); document.orderform.qty1.focus();">
+	<h1>Parts Order Form</h1>
+	Indicate how many of each Part you want to order in the "Qty" column. The total amount of your order will be calculated automatically. When you are ready to submit your order, click on the <b>Make Purchase</b> button.<br><br>
+
+	<form name = "orderform" method = "post">
+	<table border = '3'>
+		<tr>
+			<th>Qty</th>
+			<th>Part#</th>
+			<th>Description</th>
+			<th>Price</th>
+			<th>Total</th>
+		</tr>
+
+		<tr>
+			<td><input name = "qty1" size = '3' OnBlur = "CalculateTotals()"></td>
+			<td>25791</td>
+			<td>Chromated Flywheel Knob</td>
+			<td align = "right">Rs. 50</td>
+			<td><input name = "total1" size = '7' OnFocus = "document.orderform.qty2.select(); document.orderform.qty2.focus();"></td>
+		</tr>
+
+		<tr>
+			<td><input name = "qty2" size = '3' OnBlur = "CalculateTotals()"></td>
+			<td>17557</td>
+			<td>Parambulatory Dramograph</td>
+			<td align = "right">Rs. 295</td>
+			<td><input name = "total2" size = '7' OnFocus = "document.orderform.qty3.select(); document.orderform.qty3.focus();"></td>
+		</tr>
+
+		<tr>
+			<td><input name = "qty3" size = '3' OnBlur = "CalculateTotals()"></td>
+			<td>98754</td>
+			<td>Triple-Extruded Colorizer</td>
+			<td align = "right">Rs. 395</td>
+			<td><input name = "total3" size = '7' OnFocus = "document.orderform.qty4.select(); document.orderform.qty4.focus();"></td>
+		</tr>
+
+		<tr>
+			<td><input name = "qty4" size = '3' OnBlur = "CalculateTotals()"></td>
+			<td>47594</td>
+			<td>Rediculation Kit (Complete)</td>
+			<td align = "right">Rs. 750</td>
+			<td><input name = "total4" size = '7' OnFocus = "document.orderform.qty1.select(); document.orderform.qty1.focus();"></td>
+		</tr>
+
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td align = "right"><b>GRAND TOTAL:</b></td>
+			<td><input name = "grandtotal" size = '7' OnFocus= "document.orderform.qty1.select(); document.orderform.qty1.focus();"></td>
+		</tr>
+	</table>
+
+	<br>
+
+	<input type = "submit" value = "Make Purchase">
+	</form>
+
+	<script type = "text/javascript">
+	<!--
+		f=document.orderform;
+		f.qty1.value = 0;
+		f.qty2.value = 0;
+		f.qty3.value = 0;
+		f.qty4.value = 0;
+		f.total1.value = 0;
+		f.total2.value = 0;
+		f.total3.value = 0;
+		f.total4.value = 0;
+		f.grandtotal.value = 0;
+	//-->
+
+	</script>
+
+<p>
+<a href="index.html">Go to Main Page</a>
+</p>
+</body>
+</html>
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Check</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<script type = "text/javascript">
+	<!--
+		"use strict";
+
+		function checkform()
+		{
+			var message = "";
+			
+			if(document.CardForm.HoldersName.value.length < 1)
+				message = message + "Please enter the Name in the credit card.\n";
+				
+			if(document.CardForm.CardNumber.value.length < 16)
+				message = message + "Please type in all 16 digits of the card number.\n";
+			else if(isNaN(document.CardForm.CardNumber.value))
+				message = message + "The card number must only contain numbers.\n";
+				
+			if(document.CardForm.CardMonth.value.length < 2)
+				message = message + "Please type in both digits of the expiry month.\n";
+			else if(isNaN(document.CardForm.CardMonth.value))
+				message = message + "Enter only numbers for month between 1 and 12.\n";
+			else if(document.CardForm.CardMonth.value < 1 || document.CardForm.CardMonth.value > 12)
+				message = message + "The month value needs to be between 1 and 12.\n";
+
+			if(document.CardForm.CardYear.value.length < 2)
+				message = message + "Please type in both digits of the expiry year.\n";
+			else if(isNaN(document.CardForm.CardYear.value))
+				message = message + "Enter only numbers for year.\n";
+			
+			if(message.length > 0)
+			{
+				alert(message);
+				return false;
+			}
+			else
+			{
+				alert("Input Accepted");
+				return true;
+			}
+		}
+	-->
+	</script>
+</head>
+
+<body onLoad = "document.CardForm.HoldersName.focus();">
+	<form name = "CardForm" onSubmit = "return checkform();">
+		Enter Cardholders Name : <input type = "text" name = "HoldersName">
+		<br>
+		Card Number : <input type = "text" name = "CardNumber" size = 16 maxlength = 16>
+		<br>
+		Card Expiry Date : <input type = "text" name = "CardMonth" size = 2 maxlength = 2>
+		/<input type = "text" name = "CardYear" size = 2 maxlength = 2>
+		<p>
+		<input type = "submit" value = "Submit Info">
+	</form>
+
+<p>
+<a href="index.html">Go to Main Page</a>
+</p>
+</body>
+</html>
+
